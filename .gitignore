@@ -1,0 +1,25 @@
+.claude-opus-research/
+.env
+.env.*
+!.env.example
+node_modules/
+.gate-a/
+data/
+dist/
+dist-pages/
+# Local coordination and private integration run notes, not release source.
+AGENTS.md
+BUILD_HANDOFF.md
+STARTER_PROMPT.md
+PLAN.md
+docs/DEMO_RUNBOOK.md
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.log
+*.pem
+*.key
+coverage/
+*.tsbuildinfo
+test-results/
+

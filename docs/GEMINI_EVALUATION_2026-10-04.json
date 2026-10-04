@@ -1,0 +1,305 @@
+{
+  "date": "2026-10-04",
+  "model": "gemini-3.8-flash",
+  "api": "Interactions",
+  "thinking": "medium",
+  "maxOutputTokens": 65536,
+  "data": "Original authored fixtures; no payment execution",
+  "suitePrompt": "Baseline prompt, before partial-refund policy clarification",
+  "cases": {
+    "maya": {
+      "at": "2026-10-04T15:59:53.255Z",
+      "correct": true,
+      "proposal": {
+        "decision": "refund",
+        "captureId": "fixture-maya-extra",
+        "amount": 2900,
+        "currency": "USD",
+        "reason": "The customer experienced a checkout freeze and requested a refund for the second $29 payment (fixture-maya-extra) while retaining their original access. Refunding the duplicate capture fixture-maya-extra leaves the original grant and access under fixture-maya-original active and unaffected.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2",
+          "access"
+        ],
+        "question": null,
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "noah": {
+      "at": "2026-10-04T16:21:43.188Z",
+      "correct": true,
+      "proposal": {
+        "decision": "clarify",
+        "captureId": null,
+        "amount": null,
+        "currency": null,
+        "reason": "The customer stated 'Something looks wrong with my payments. Can you cancel it?' but did not clearly identify which payment to cancel or specifically identify an extra purchase. Ambiguity must be deferred for clarification.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2"
+        ],
+        "question": "Could you please clarify whether you would like to refund the duplicate charge from 09:46 (fixture-noah-extra) while keeping your original access from 09:42, or if you intended to cancel something else?",
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "sam": {
+      "at": "2026-10-04T16:21:46.507Z",
+      "correct": true,
+      "proposal": {
+        "decision": "clarify",
+        "captureId": null,
+        "amount": null,
+        "currency": null,
+        "reason": "The customer requested a partial refund for unused days ('Give me half back for the days I did not use') rather than identifying an extra purchase. Partial refunds are not supported, so clarification is required.",
+        "evidenceIds": [
+          "request"
+        ],
+        "question": "We do not offer partial refunds for unused time. Did you experience an issue or intend to report an accidental duplicate purchase?",
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "jules": {
+      "at": "2026-10-04T16:21:54.875Z",
+      "correct": true,
+      "proposal": {
+        "decision": "clarify",
+        "captureId": null,
+        "amount": null,
+        "currency": null,
+        "reason": "The customer requested a refund for 'the subscription charge from last month' without clearly identifying an extra or duplicate purchase. Because there are two purchases on record and subscriptions are not supported, we must clarify the customer's intent.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2"
+        ],
+        "question": "Could you please clarify which specific charge you are referring to and whether you are reporting an accidental extra purchase?",
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "alex": {
+      "at": "2026-10-04T16:21:57.885Z",
+      "correct": true,
+      "proposal": {
+        "decision": "clarify",
+        "captureId": null,
+        "amount": null,
+        "currency": null,
+        "reason": "The customer is unsure which receipt belongs to them and has not clearly identified an extra purchase to be refunded.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2"
+        ],
+        "question": "Could you please confirm whether both purchases were made on your account, and if one was an accidental duplicate that you would like refunded?",
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "eli": {
+      "at": "2026-10-04T16:22:01.808Z",
+      "correct": true,
+      "proposal": {
+        "decision": "refund",
+        "captureId": "fixture-eli-extra",
+        "amount": 2900,
+        "currency": "USD",
+        "reason": "The customer explicitly requested a refund for the later duplicate charge while keeping the first purchase. The later charge (fixture-eli-extra) is a full capture of 2900 USD, and refunding it leaves the original purchase (fixture-eli-original) and its access grant intact.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2",
+          "access"
+        ],
+        "question": null,
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "priya": {
+      "at": "2026-10-04T16:22:05.763Z",
+      "correct": true,
+      "proposal": {
+        "decision": "refund",
+        "captureId": "fixture-priya-extra",
+        "amount": 2900,
+        "currency": "USD",
+        "reason": "Customer requested cancellation of the 09:46 duplicate purchase while retaining the 09:42 purchase. Refunding capture fixture-priya-extra leaves the original grant and access intact.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2",
+          "access"
+        ],
+        "question": null,
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "luca": {
+      "at": "2026-10-04T16:22:09.519Z",
+      "correct": true,
+      "proposal": {
+        "decision": "refund",
+        "captureId": "fixture-luca-extra",
+        "amount": 2900,
+        "currency": "USD",
+        "reason": "The customer requested a refund for the duplicate newer purchase while keeping library access. The newer purchase (fixture-luca-extra, 2900 USD) is an extra capture, and refunding it leaves the original purchase (fixture-luca-original) and its independent grant fully intact.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2",
+          "access"
+        ],
+        "question": null,
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "zoe": {
+      "at": "2026-10-04T16:22:12.665Z",
+      "correct": true,
+      "proposal": {
+        "decision": "refund",
+        "captureId": "fixture-zoe-extra",
+        "amount": 2900,
+        "currency": "USD",
+        "reason": "The customer requested a refund for the repeat purchase made four minutes after their initial payment. Refunding capture fixture-zoe-extra leaves the original purchase fixture-zoe-original intact with independent active access.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2",
+          "access"
+        ],
+        "question": null,
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "amara": {
+      "at": "2026-10-04T16:22:16.179Z",
+      "correct": true,
+      "proposal": {
+        "decision": "refund",
+        "captureId": "fixture-amara-extra",
+        "amount": 2900,
+        "currency": "USD",
+        "reason": "The customer requested a refund for their accidental duplicate checkout while keeping the first purchase. Refunding capture fixture-amara-extra ($29.00 USD) will leave the original purchase fixture-amara-original and its associated access intact.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2",
+          "access"
+        ],
+        "question": null,
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "kai": {
+      "at": "2026-10-04T16:22:19.628Z",
+      "correct": true,
+      "proposal": {
+        "decision": "refund",
+        "captureId": "fixture-kai-extra",
+        "amount": 2900,
+        "currency": "USD",
+        "reason": "The customer requested a full refund for the duplicate, later payment while maintaining their access. Refunding capture fixture-kai-extra ($29.00 USD) leaves the independent original purchase fixture-kai-original and its associated grant intact.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2",
+          "access"
+        ],
+        "question": null,
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    },
+    "ren": {
+      "at": "2026-10-04T16:22:24.005Z",
+      "correct": true,
+      "proposal": {
+        "decision": "refund",
+        "captureId": "fixture-ren-extra",
+        "amount": 2900,
+        "currency": "USD",
+        "reason": "The customer explicitly requested reversing the newer duplicate $29 pass purchase (fixture-ren-extra). Refunding this capture leaves the original paid purchase (fixture-ren-original) and its access grant intact.",
+        "evidenceIds": [
+          "request",
+          "purchase-1",
+          "purchase-2",
+          "access"
+        ],
+        "question": null,
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    }
+  },
+  "targetedRetests": {
+    "sam": {
+      "at": "2026-10-04T16:24:22.488Z",
+      "correct": true,
+      "proposal": {
+        "decision": "clarify",
+        "captureId": null,
+        "amount": null,
+        "currency": null,
+        "reason": "The customer is requesting a partial refund ('half back for the days I did not use') rather than identifying an accidental extra purchase. Partial refunds require support review, as automated resolution only supports full prepaid capture refunds.",
+        "evidenceIds": [
+          "request"
+        ],
+        "question": "You requested a partial refund for unused days. This automated system can only process full capture refunds. Would you like a human support operator to review your request for a partial refund, or were you inquiring about a full refund for an extra purchase?",
+        "source": "gemini",
+        "caseVersion": 1
+      },
+      "evidenceSource": "authored fixture",
+      "paymentExecuted": false
+    }
+  },
+  "supportedCorrect": 8,
+  "supportedTotal": 8,
+  "deferredCorrect": 4,
+  "deferredTotal": 4,
+  "budgetCapUsd": 10,
+  "reservedUsd": 8.25,
+  "totalCallsIncludingPriorIntegration": 15,
+  "limitations": [
+    "One run per case, not held-out or adversarial",
+    "Eight supported cases largely paraphrase an explicit duplicate-refund request",
+    "Receipt labels explicitly identify original and extra purchases",
+    "One merchant-policy wording issue in the baseline partial-refund response; corrected and retested on Sam only",
+    "Full suite not rerun after the wording instruction change",
+    "No human operator comparison or time-savings evidence"
+  ]
+}
